@@ -5,7 +5,11 @@ module.exports = (env) => {
   const isProduction = env === 'production';
   
   return {
-    entry: './src/app.js',
+    entry: [
+//had to explicitly add webpack-dev-server along with port in order to get rid of "sockjs-node ERR_CONNECTION_REFUSED" error in console logs
+      "webpack-dev-server/client?http://localhost:8080",
+      path.resolve(__dirname, 'src/app.js')
+    ],
     output: {
       path: path.join(__dirname, 'public'),
       filename: 'bundle.js'
