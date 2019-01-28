@@ -34,7 +34,12 @@ module.exports = (env) => {
     //Note: Webpack4 would minify the output by default in -p (prodcution mode)
     devtool: isProduction ? 'source-map' : 'cheap-module-eval-source-map',
     devServer: {
-      contentBase: path.join(__dirname, 'public')
+      contentBase: path.join(__dirname, 'public'),
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
+        "Access-Control-Allow-Headers": "X-Requested-With, content-type, Authorization"
+      }
     }
   }
 }

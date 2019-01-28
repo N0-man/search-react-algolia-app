@@ -4,7 +4,7 @@ import { searchProducts } from '../actions/searchProducts'
 
 export const SearchBar = ({searchProducts}) => (
     <div>
-        <input type="text" onChange = {(e) => searchProducts(e.target.value)} placeholder="Search Whatever..."/>
+        <input className="input-wrapper" type="text" onChange = {(e) => searchProducts(e.target.value)} placeholder="Search Whatever..."/>
     </div>
 )
 

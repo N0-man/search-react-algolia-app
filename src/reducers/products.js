@@ -4,7 +4,8 @@ import productsFixture from '../fixtures/products'
 //Product Reducer
 const productReducerDefaultState = {
     products: productsFixture,
-    filteredProducts: productsFixture
+    filteredProducts: productsFixture,
+    searchTerm: ''
 }
 
 export default (state = productReducerDefaultState, action) => {
@@ -12,7 +13,8 @@ export default (state = productReducerDefaultState, action) => {
         case 'SEARCH_PRODUCTS':
             return {
                 ...state,
-                filteredProducts: filterProducts(state.products, action.searchTerm)
+                filteredProducts: filterProducts(state.products, action.searchTerm),
+                searchTerm: action.searchTerm
             }
         default:
             return state;
